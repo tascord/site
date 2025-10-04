@@ -63,7 +63,7 @@ const timeStamp = (p: Entry) => {
                 <span class="opacity-40 whitespace-nowrap" :title="new Date(post.timestamp).toLocaleString('en-US')">{{
                     timeStamp(post) }}</span>
             </div>
-            <p class="pl-8 ml-[0.1ch] whitespace-pre max-h-[10rem] overflow-y-auto truncate">{{ post.content }}</p>
+            <p class="pl-8 ml-[0.1ch] whitespace-pre max-h-[10rem] overflow-y-auto">{{ post.content }}</p>
         </div>
     </command>
 </template>
