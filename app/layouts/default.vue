@@ -7,6 +7,8 @@ body {
 </style>
 
 <template>
+
+    <a rel="me" href="https://faggot.sh/@flora" class="hidden">Mastodon</a>
     <div
         class="w-screen min-h-screen flex flex-col bg-black flex items-center justify-center overflow-none blur-[0.6px]">
         <img class="fixed bottom-0 left-0 w-screen h-screen mix-blend-screen opacity-20 select-none pointer-events-none"

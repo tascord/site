@@ -11,6 +11,16 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss'
   ],
 
+  app: {
+    head: {
+      title: 'flora\'s site',
+      htmlAttrs: { lang: 'en' },
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      ]
+    }
+  },
+
   nitro: {
     esbuild: {
       options: {
