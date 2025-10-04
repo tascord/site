@@ -4,7 +4,7 @@ const { link, img, alt } = defineProps<{ link?: string, alt?: string, img: strin
 
 <template>
     <a v-if="link !== undefined" :href="link">
-        <img :src="img" :alt="alt">
+        <img :src="img" class="p-2" :alt="alt">
     </a>
-    <img v-else :src="img" :alt="alt">
+    <img v-else :src="img" class="p-2" :alt="alt">
 </template>
