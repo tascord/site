@@ -27,5 +27,10 @@ export default defineNuxtConfig({
         target: "esnext"
       }
     }
+  },
+
+  runtimeConfig: {
+    OPENMOD_KEY: `8cbbfe1c-d400-42d5-814d-eb3879a76b68`,
+    GUESTBOOK_MOD_SECRET: `!19-030844`,
   }
 })

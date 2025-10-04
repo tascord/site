@@ -2,7 +2,8 @@ import { H3Event } from "h3";
 import { Filter } from "content-checker";
 import { JSONFilePreset } from "lowdb/node";
 
-const filter = new Filter({ openModeratorAPIKey: process.env.OPENMOD_KEY! });
+const runtime = useRuntimeConfig();
+const filter = new Filter({ openModeratorAPIKey: runtime.OPENMOD_KEY });
 const db = await JSONFilePreset('guestbook.json', { posts: [] as Entry[] })
 export type Entry = { author?: string, content: string, timestamp: number };
 
@@ -65,7 +66,7 @@ async function delete_post(event: H3Event) {
     const index = Number(query.index);
     const secret = query.auth;
 
-    if (secret !== process.env.GUESTBOOK_MOD_SECRET) {
+    if (secret !== runtime.GUESTBOOK_MOD_SECRET) {
         const err = createError('Unauthorized');
         err.statusCode = 403;
         return sendError(event, err);
