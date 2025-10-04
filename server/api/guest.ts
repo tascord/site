@@ -44,7 +44,10 @@ async function write_post(event: H3Event) {
         return sendError(event, err);
     }
 
-    const author = body.author ?? undefined;
+    let author: string | undefined = body.author ?? undefined;
+    if (author) {
+        author = author.trim().slice(0, 30);
+    }
 
     // Moderate content before saving
     const profane = (await filter.isProfaneAI(body.content)).profane;

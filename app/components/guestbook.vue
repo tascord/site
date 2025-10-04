@@ -92,7 +92,7 @@ async function submitEntry() {
         }) as ApiResponse
 
         if (response.success) {
-            message.value = author ? `thank you, ${author.value}.` : 'thank you.';
+            message.value = author.value.length > 0 ? `thank you, ${author.value}.` : 'thank you.';
             author.value = ''
             content.value = ''
             entryCount.value++
