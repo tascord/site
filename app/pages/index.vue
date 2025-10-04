@@ -45,7 +45,7 @@ const buttons: ([string, string, string] | [string, string])[] = [
     </command>
 
     <command command="cat buttons">
-        <div class="inline-flex w-[80%] flex-wrap">
+        <div class="inline-flex w-[calc(100%_-_4ch)] flex-wrap">
             <gcb v-for="button in buttons" :alt="button[0]" :img="button[1]" :link="button[2]" />
         </div>
     </command>
