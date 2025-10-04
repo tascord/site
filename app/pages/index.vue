@@ -19,6 +19,15 @@ const lg_stops = (stops: string[]): String => {
     return output.join(', ');
 }
 
+const buttons: ([string, string, string] | [string, string])[] = [
+    ['lesbian flag', 'https://caitsith.neocities.org/lesbians.jpg'],
+    ['transgender flag', 'https://caitsith.neocities.org/nicer.jpg'],
+    ['best viewed on any browser', 'https://caitsith.neocities.org/buttons/newbuttons/any_browser_computer.gif'],
+    ['no nazi, no faschism, no racism', 'https://caitsith.neocities.org/buttons/newbuttons/antinazi.gif'],
+    ['dog house', 'https://caitsith.neocities.org/buttons/newbuttons/doghouse1.gif'],
+    ['yuri!!!! (links to caitsith)', 'https://caitsith.neocities.org/buttons/yuriiibutton.png', 'https://caitsith.neocities.org/']
+]
+
 </script>
 
 
@@ -33,6 +42,12 @@ const lg_stops = (stops: string[]): String => {
     <command command="groups">
         <span v-for="([key, value]) in Object.entries(GROUPS)" class="font-bold bg-clip-text text-transparent mr-2"
             :style="`background-image: linear-gradient(90deg, ${lg_stops(value)});`">{{ key }}</span>
+    </command>
+
+    <command command="cat buttons">
+        <div class="inline-flex w-[80%] flex-wrap">
+            <gcb v-for="button in buttons" :alt="button[0]" :img="button[1]" :link="button[2]" />
+        </div>
     </command>
 
     <command command="ls -l">
