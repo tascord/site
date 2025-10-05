@@ -94,7 +94,7 @@ onMounted(async () => {
                 <div class="flex flex-col">
                     <span>{{ nowPlaying?.name }} by {{ nowPlaying?.artist['#text'] }}</span>
                     <span>{{ nowPlaying?.album['#text'] }}</span>
-                    <a target="_blank" :href="nowPlaying.url" class="hover:text-pink-400 group">
+                    <a target="_blank" :href="nowPlaying.url" class="hover:text-pink-400 group flex flex-nowrap">
                         <span class="text-white opacity-40 group-hover:opacity-60">[</span>
                         last.fm
                         <span class="text-white opacity-40 group-hover:opacity-60">]</span>
