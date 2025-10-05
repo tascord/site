@@ -22,7 +22,7 @@
                         {{ content.length }}/{{ GB_MAX_LEN }}
                     </div>
                 </div>
-                <a target="_blank" href="/guestbook" class="hover:text-pink-400 group block flex flex-nowrap">
+                <a target="_blank" href="/guestbook" class="hover:text-pink-400 group flex flex-nowrap">
                     <span class="text-white opacity-40 group-hover:opacity-60">[</span>
                     <span class="whitespace-nowrap">{{ entryCount }} entries</span>
                     <span class="text-white opacity-40 group-hover:opacity-60">]</span>

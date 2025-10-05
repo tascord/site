@@ -41,13 +41,13 @@ const timeStamp = (p: Entry) => {
 
     <command :command="`tail -n +${count * page} guestbook | head -n ${count}`">
         <div class="inline-flex space-x-2">
-            <button class="hover:text-pink-400 group block flex flex-nowrap" @click="previousPage">
+            <button class="hover:text-pink-400 group flex flex-nowrap" @click="previousPage">
                 <span class="text-white opacity-40 group-hover:opacity-60">[</span>
                 <span class="whitespace-nowrap">previous</span>
                 <span class="text-white opacity-40 group-hover:opacity-60">]</span>
             </button>
 
-            <button class="hover:text-pink-400 group block flex flex-nowrap" @click="nextPage">
+            <button class="hover:text-pink-400 group flex flex-nowrap" @click="nextPage">
                 <span class="text-white opacity-40 group-hover:opacity-60">[</span>
                 <span class="whitespace-nowrap">next</span>
                 <span class="text-white opacity-40 group-hover:opacity-60">]</span>
@@ -57,7 +57,7 @@ const timeStamp = (p: Entry) => {
         <div v-for="post in posts" class="mt-4">
             <div class="flex justify-between w-full items-center">
                 <div class="inline-flex items-center" :class="post.author ? '' : 'opacity-40'">
-                    <img class="w-8 h-8" :src="avatar(post.author ?? 'anonymous')" alt="" />
+                    <NuxtImg class="w-8 h-8" :src="avatar(post.author ?? 'anonymous')" alt="" />
                     <h3>{{ post.author ?? 'anonymous' }}</h3>
                 </div>
                 <span class="opacity-40 whitespace-nowrap" :title="new Date(post.timestamp).toLocaleString('en-US')">{{

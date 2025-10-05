@@ -21,6 +21,16 @@ export default defineNuxtConfig({
     }
   },
 
+  content: {
+    build: {
+      markdown: {
+        highlight: false,
+        rehypePlugins: {},
+        remarkPlugins: {},
+      }
+    },
+  },
+
   nitro: {
     esbuild: {
       options: {

@@ -37,6 +37,12 @@ const buttons: ([string, string, string] | [string, string])[] = [
         sorts of rust nonsense. I am a big procedural-macro enjoyer and i specialize in building new systems to improve
         productivity
         in my teams.
+
+        <a class="hover:text-pink-400 group flex-inline flex-nowrap" href="/blog/hi">
+            <span class="text-white opacity-40 group-hover:opacity-60">[</span>
+            <span class="whitespace-nowrap">read more</span>
+            <span class="text-white opacity-40 group-hover:opacity-60">]</span>
+        </a>
     </command>
 
     <command command="groups">
@@ -46,7 +52,9 @@ const buttons: ([string, string, string] | [string, string])[] = [
 
     <command command="cat buttons">
         <div class="inline-flex w-[calc(100%_-_4ch)] flex-wrap">
-            <gcb v-for="button in buttons" :alt="button[0]" :img="button[1]" :link="button[2]" />
+            <div v-for="button in buttons">
+                <gcb :alt="button[0]" :img="button[1]" :link="button[2]" />
+            </div>
         </div>
     </command>
 

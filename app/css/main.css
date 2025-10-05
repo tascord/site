@@ -1,4 +1,6 @@
 
+@import 'prismjs/themes/prism-tomorrow.css';
+
 /* Maple Mono Font Family */
 @font-face {
     font-family: 'Maple Mono';
