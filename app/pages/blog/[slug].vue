@@ -20,7 +20,7 @@ useHead({
     <div class="text-white w-full">
         <article class="prose lg:prose-xl w-full" v-if="post">
             <Hero :title="post.title" :author="'flora'" :date="post.date" />
-            <ContentRenderer :value="post" />
+            <ContentRenderer class="px-4" :value="post" />
         </article>
         <div v-else class="w-full h-full flex flex-col items-center justify-center">
             post not found
