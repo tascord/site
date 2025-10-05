@@ -32,7 +32,7 @@ async function get_posts(event: H3Event) {
         err.statusCode = 400;
         return sendError(event, err);
     }
-    const posts = db.data.posts.slice(index, index + count);
+    const posts = [...db.data.posts].reverse().slice(index, index + count);
     return posts;
 }
 
