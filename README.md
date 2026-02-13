@@ -2,6 +2,22 @@
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
+## Nix Deployment
+
+This project includes a Nix flake for easy deployment on NixOS servers. See [NIX_SETUP.md](NIX_SETUP.md) for detailed instructions.
+
+Quick start with Nix:
+```bash
+# Enter development environment
+nix develop
+
+# Build the site
+nix build
+
+# Run the site
+nix run
+```
+
 ## Setup
 
 Make sure to install dependencies:
