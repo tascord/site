@@ -130,10 +130,10 @@ The NixOS module supports the following options:
 - `services.flora-site.port` - Port to listen on (default: 3000)
 - `services.flora-site.host` - Host to bind to (default: "0.0.0.0")
 - `services.flora-site.package` - The site package to use (default: auto-detected)
-- `services.flora-site.openmodKey` - OpenMod API key (default: value from nuxt.config.ts)
-- `services.flora-site.guestbookModSecret` - Guestbook moderation secret (default: value from nuxt.config.ts)
+- `services.flora-site.openmodKey` - OpenMod API key (default: "", uses value from nuxt.config.ts)
+- `services.flora-site.guestbookModSecret` - Guestbook moderation secret (default: "", uses value from nuxt.config.ts)
 
-**Security Note**: For production deployments, override the default secrets:
+**Security Note**: The default secrets are defined in `nuxt.config.ts` and are already public in the repository. For production deployments, you should override these:
 
 ```nix
 services.flora-site = {
@@ -143,7 +143,16 @@ services.flora-site = {
 };
 ```
 
-Or use `agenix` or `sops-nix` for proper secret management.
+For better secret management, consider using `agenix` or `sops-nix`:
+
+```nix
+# With agenix
+services.flora-site = {
+  enable = true;
+  openmodKey = config.age.secrets.openmod-key.path;
+  guestbookModSecret = config.age.secrets.guestbook-secret.path;
+};
+```
 
 ## Nginx Reverse Proxy Example
 

@@ -116,14 +116,20 @@
             
             openmodKey = mkOption {
               type = types.str;
-              default = "8cbbfe1c-d400-42d5-814d-eb3879a76b68";
-              description = "OpenMod API key";
+              default = "";
+              description = ''
+                OpenMod API key. If not set, falls back to the default in nuxt.config.ts.
+                For production, provide your own key.
+              '';
             };
             
             guestbookModSecret = mkOption {
               type = types.str;
-              default = "!19-030844";
-              description = "Guestbook moderation secret";
+              default = "";
+              description = ''
+                Guestbook moderation secret. If not set, falls back to the default in nuxt.config.ts.
+                For production, provide your own secret.
+              '';
             };
           };
           
@@ -137,8 +143,10 @@
                 PORT = toString cfg.port;
                 HOST = cfg.host;
                 NODE_ENV = "production";
-                # Runtime config from nuxt.config.ts
+              } // lib.optionalAttrs (cfg.openmodKey != "") {
+                # Override runtime config from nuxt.config.ts if provided
                 NUXT_OPENMOD_KEY = cfg.openmodKey;
+              } // lib.optionalAttrs (cfg.guestbookModSecret != "") {
                 NUXT_GUESTBOOK_MOD_SECRET = cfg.guestbookModSecret;
               };
               
