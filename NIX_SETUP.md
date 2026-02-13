@@ -85,7 +85,11 @@ node ./result/server/index.mjs
 
 ## NixOS Deployment
 
-To deploy on a NixOS server, add this to your NixOS configuration:
+To deploy on a NixOS server, add this to your NixOS configuration.
+
+See [flake.example.nix](flake.example.nix) for a complete example.
+
+Basic setup:
 
 ```nix
 {
