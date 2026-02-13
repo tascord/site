@@ -113,6 +113,18 @@
               default = self.packages.${pkgs.system}.site;
               description = "The site package to use";
             };
+            
+            openmodKey = mkOption {
+              type = types.str;
+              default = "8cbbfe1c-d400-42d5-814d-eb3879a76b68";
+              description = "OpenMod API key";
+            };
+            
+            guestbookModSecret = mkOption {
+              type = types.str;
+              default = "!19-030844";
+              description = "Guestbook moderation secret";
+            };
           };
           
           config = mkIf cfg.enable {
@@ -125,6 +137,9 @@
                 PORT = toString cfg.port;
                 HOST = cfg.host;
                 NODE_ENV = "production";
+                # Runtime config from nuxt.config.ts
+                NUXT_OPENMOD_KEY = cfg.openmodKey;
+                NUXT_GUESTBOOK_MOD_SECRET = cfg.guestbookModSecret;
               };
               
               serviceConfig = {

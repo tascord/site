@@ -2,6 +2,29 @@
 
 This repository includes a Nix flake for easy deployment on NixOS servers.
 
+## Quick Start
+
+1. **Validate setup** (optional):
+   ```bash
+   ./check-nix-setup.sh
+   ```
+
+2. **Calculate npm dependencies hash**:
+   ```bash
+   ./update-nix-hash.sh
+   ```
+   Or manually:
+   ```bash
+   nix run nixpkgs#prefetch-npm-deps package-lock.json
+   ```
+   Then update `npmDepsHash` in `flake.nix` with the output.
+
+3. **Build and run**:
+   ```bash
+   nix build
+   nix run
+   ```
+
 ## Initial Setup
 
 On first use, you need to calculate the npm dependencies hash:
@@ -103,6 +126,20 @@ The NixOS module supports the following options:
 - `services.flora-site.port` - Port to listen on (default: 3000)
 - `services.flora-site.host` - Host to bind to (default: "0.0.0.0")
 - `services.flora-site.package` - The site package to use (default: auto-detected)
+- `services.flora-site.openmodKey` - OpenMod API key (default: value from nuxt.config.ts)
+- `services.flora-site.guestbookModSecret` - Guestbook moderation secret (default: value from nuxt.config.ts)
+
+**Security Note**: For production deployments, override the default secrets:
+
+```nix
+services.flora-site = {
+  enable = true;
+  openmodKey = "your-secret-key-here";
+  guestbookModSecret = "your-secret-here";
+};
+```
+
+Or use `agenix` or `sops-nix` for proper secret management.
 
 ## Nginx Reverse Proxy Example
 
