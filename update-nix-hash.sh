@@ -32,7 +32,8 @@ fi
 # Update flake.nix with the correct hash
 if [ -n "$HASH" ]; then
     echo "Updating flake.nix..."
-    sed -i "s|npmDepsHash = \"sha256-[^\"]*\";|npmDepsHash = \"$HASH\";|" flake.nix
+    # Replace any sha256 hash (including placeholder) with the correct one
+    sed -i "s|npmDepsHash = \"sha256-[A-Za-z0-9+/=]*\";|npmDepsHash = \"$HASH\";|" flake.nix
     echo "Done! Hash updated in flake.nix"
     echo "You can now run: nix build"
 else

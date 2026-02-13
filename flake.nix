@@ -20,7 +20,7 @@
           
           # This hash needs to be calculated. Run:
           # nix build .#site 2>&1 | grep -oP 'got:\s+\K\S+' | head -1
-          # Then replace this placeholder with the actual hash
+          # Or use the helper script: ./update-nix-hash.sh
           npmDepsHash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
           
           # Native dependencies (better-sqlite3)

@@ -75,3 +75,4 @@ echo "You can now:"
 echo "  - Build: nix build"
 echo "  - Run: nix run"
 echo "  - Develop: nix develop"
+
